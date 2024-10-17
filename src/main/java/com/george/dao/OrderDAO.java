@@ -1,4 +1,6 @@
 package com.george.dao;
 
-public interface OrderDAO {
+import com.george.entity.Order;
+
+public interface OrderDAO extends CrudDAO<Order, Integer> {
 }

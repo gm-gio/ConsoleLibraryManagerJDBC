@@ -10,9 +10,9 @@ public interface CrudDAO<T, K> {
 
     List<T> findAll(Connection connection) throws SQLException;
 
-    T update(Connection connection, T entity) throws SQLException;
+    void update(Connection connection, T entity) throws SQLException;
 
     void deleteById(Connection connection, K id) throws SQLException;
 
-    T create(Connection connection, T entity) throws SQLException;
+    void create(Connection connection, T entity) throws SQLException;
 }

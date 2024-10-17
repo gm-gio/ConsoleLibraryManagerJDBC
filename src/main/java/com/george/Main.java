@@ -1,5 +1,8 @@
 package com.george;
 
+import com.george.db.utils.SQLUtils;
+import com.george.mapper.UniversalMapper;
+import com.george.mapper.impl.UniversalMapperImpl;
 import com.george.menu.impl.MenuManagerImpl;
 import com.george.console.impl.DefaultConsole;
 import com.george.dao.AuthorDAO;
@@ -29,11 +32,12 @@ public class Main {
 
         Properties properties = ResourceFileUtils.readResourceFileAsProperties("/connection.properties");
         DBManager dbManager = new DBManager(properties);
+        UniversalMapper mapper = new UniversalMapperImpl();
 
 
-        AuthorDAO authorDAO = new AuthorDAOImpl();
-        BookDAO bookDAO = new BookDAOImpl();
-        OrderDAO orderDAO = new OrderDAOImpl();
+        AuthorDAO authorDAO = new AuthorDAOImpl(mapper);
+        BookDAO bookDAO = new BookDAOImpl(mapper);
+        OrderDAO orderDAO = new OrderDAOImpl(mapper);
         ReaderDAO readerDAO = new ReaderDAOImpl();
 
         new DefaultConsole();

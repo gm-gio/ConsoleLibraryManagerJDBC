@@ -1,4 +1,6 @@
 package com.george.dao;
 
-public interface ReaderDAO {
+import java.io.Reader;
+
+public interface ReaderDAO extends CrudDAO<Reader, Integer> {
 }

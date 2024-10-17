@@ -36,9 +36,10 @@ CREATE TABLE IF NOT EXISTS library_manage.orders
 
 CREATE TABLE IF NOT EXISTS library_manage.book_order
 (
-    order_id INT,
     book_id  INT,
-    PRIMARY KEY (order_id, book_id),
-    FOREIGN KEY (order_id) REFERENCES library_manage.orders (order_id) ON DELETE CASCADE,
-    FOREIGN KEY (book_id) REFERENCES library_manage.books (book_id) ON DELETE CASCADE
+    order_id INT,
+    PRIMARY KEY (book_id, order_id),
+    FOREIGN KEY (book_id) REFERENCES library_manage.books (book_id) ON DELETE CASCADE,
+    FOREIGN KEY (order_id) REFERENCES library_manage.orders (order_id) ON DELETE CASCADE
+
 ) ENGINE = InnoDB;
